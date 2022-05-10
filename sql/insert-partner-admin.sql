@@ -1,6 +1,6 @@
 
 WITH admin_constants (email_address, full_name, fid) as (
-	SELECT 'email' as email_address, 'name' as full_name, 'id' as fid
+	SELECT lower('email') as email_address, 'name' as full_name, 'id' as fid
 )
 
 INSERT INTO public."user"(
@@ -8,7 +8,7 @@ INSERT INTO public."user"(
 	VALUES ((SELECT fid FROM admin_constants), (SELECT full_name FROM admin_constants), (SELECT email_address FROM admin_constants), 'false', 'false', 'true');
 	
 WITH admin_constants (email_address, full_name, fid) as (
-	SELECT 'email' as email_address, 'name' as full_name, 'id' as fid
+	SELECT lower('email') as email_address, 'name' as full_name, 'id' as fid
 )
 
 INSERT INTO public.partner_admin(
