@@ -18,5 +18,8 @@ WHERE
 NOT (users."email" LIKE '%chayn.co')
 -- AND (partneraccess."createdAt" >= '2022-05-09')
 -- AND  (partneraccess."createdAt" < '2022-05-09')
+-- If you want to get  the code  activated during a period
+-- AND (partneraccess."activatedAt" >= '2022-05-09')
+-- AND  (partneraccess."activatedAt" < '2022-05-09')
 GROUP BY partner."name", partneraccess."featureTherapy", partneraccess."featureLiveChat";
 
