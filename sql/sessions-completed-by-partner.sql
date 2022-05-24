@@ -1,6 +1,5 @@
 SELECT COUNT(*),
-	partner."name" as access_code_partner_name,
-	sessionuser."completed" as session_completed
+	partner."name" as access_code_partner_name
 
 from public."session_user" sessionuser
 	LEFT JOIN public."course_user" courseuser
@@ -14,9 +13,13 @@ from public."session_user" sessionuser
 WHERE -- removes chayn users 
 NOT (users."email" LIKE '%chayn.co')
 AND NOT (users."email" LIKE '%team.bumble.com')
--- AND (courseuser."createdAt" >= '2022-05-09')
--- AND (courseuser."createdAt" < '2022-05-09')
-GROUP BY partner."name", sessionuser."completed";
+AND (sessionuser."createdAt" >= '2022-05-09')
+AND (sessionuser."createdAt" < '2022-05-09')
+-- If you want to look at number completed during this period
+-- AND (sessionuser."completedAt" >= '2022-05-09')
+-- AND (sessionuser."completedAt" < '2022-05-09')
+
+GROUP BY partner."name";
 
 
 
