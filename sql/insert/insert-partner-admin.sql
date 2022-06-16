@@ -1,7 +1,6 @@
 -- This script will convert an existing user into a partner admin. 
 
 -- Add partner admin (transaction)
-
 BEGIN TRANSACTION;
 WITH admin_constants (email_address, partner) as (
 	SELECT lower('xxx@team.bumble.com') as email_address, 'Bumble' as partner

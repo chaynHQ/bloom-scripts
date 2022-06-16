@@ -1,4 +1,3 @@
-
 -- Add user (transaction)
 BEGIN TRANSACTION;
 
