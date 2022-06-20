@@ -1,8 +1,7 @@
 SELECT 
 	COUNT(*),
 	partner."name" as access_code_partner_name,
-	course."name" as course_name,
-	courseuser."completed" as course_completed
+	course."name" as course_name
 
 from public."course_user" courseuser
 	LEFT JOIN public."course" course
@@ -18,8 +17,9 @@ WHERE
 -- removes chayn users 
 NOT (users."email" LIKE '%chayn.co')
 AND NOT (users."email" LIKE '%team.bumble.com')
+-- where clause to isolate when the course user was made
 AND (courseuser."createdAt" >= '2022-05-02')
 AND (courseuser."createdAt" < '2022-05-09')
 
 
-GROUP BY partner."name", course."name", courseuser."completed";
+GROUP BY partner."name", course."name";
