@@ -12,5 +12,10 @@ WHERE "accessCode" IS NULL
 -- removes all admins 
 AND admins."userId" IS NULL
 
+-- where clause to isolate when the user was made
+AND users."createdAt" >= '2022-06-13'
+AND users."createdAt" < '2022-06-20'
+
+
 -- removes chayn users 
 AND NOT (email LIKE '%@chayn.co')
