@@ -5,7 +5,7 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "create-access-codes": "ts-node --esm backend/create-access-codes.tss"
+    "create-access-codes": "ts-node --esm backend/create-access-codes.ts"
   },
   "dependencies": {
   },
