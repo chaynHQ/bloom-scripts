@@ -8,6 +8,7 @@
     "create-access-codes": "ts-node --esm backend/create-access-codes.ts"
   },
   "dependencies": {
+    "dotenv": "^16.0.1"
   },
   "devDependencies": {
     "@types/node": "^16.0.0",

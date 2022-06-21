@@ -1,22 +1,12 @@
 import nodefetch from 'node-fetch';
+import 'dotenv/config'
 /**
  * This script is intended to help create access codes for a given partner. 
- * 1. Ensure the "URL" variable below is set correctly to the bloom backend in the correct environment
- * 2. Login via postman using the credentials for a user admin associated with the required partner
- * 3. Copy the access token from the response and paste the token into the "TOKEN" variable below
- * 4. Set the "NUMBER_OF_CODES_NEEDED" variable below
- * 5. Run the script using the relevant yarn script 
- * 6. The script will print out access codes separated by a comma
- * 
- * Processing the output using Google Sheets
- * 1. Copy and paste script output into a Google Sheet. This will be one line with codes separated by commas
- * 2. With the cell highlighted, click on "Data > Split text into columns". This will separate the access codes into separate columns
- * 3. Copy the row with all the codes, click on the cell below, right click and choose  "Paste special > Tranposed". This paste command will put an access code on each row. 
- * 4. That's it!
+ * The README will contain more information on how to run the script. 
  */
-const URL = 'https://bloom-backend-staging.herokuapp.com/api'; // staging
-const TOKEN = '';
-const NUMBER_OF_CODES_NEEDED = 7;
+const URL = process.env.URL; 
+const TOKEN = process.env.TOKEN
+const NUMBER_OF_CODES_NEEDED = parseInt(process.env.NUMBER_OF_CODES_NEEDED);
 
 
 const headers = {
@@ -24,9 +14,16 @@ const headers = {
     'Authorization': `Bearer ${TOKEN}`
 };
 
-function delay(time) {
+const checkEnvVarsSet = () => {
+    if(!URL) throw Error('Please set API URL');
+    if(!TOKEN) throw Error('Please set bearer token');
+    if(!NUMBER_OF_CODES_NEEDED) throw Error('Please set the number of codes needed');
+}
+
+const delay = (time) => {
     return new Promise(resolve => setTimeout(resolve, time));
   }
+
 
 const addPartnerAccess = async () => {
 
@@ -55,9 +52,8 @@ const addPartnerAccess = async () => {
 }
 
 const runScript = async () => {
-    // process.stdout.write('Script start, ')
+    checkEnvVarsSet()
 
-    // login();
     for( let i = 0; i < NUMBER_OF_CODES_NEEDED; i++) {
         addPartnerAccess();
         await delay(10);
