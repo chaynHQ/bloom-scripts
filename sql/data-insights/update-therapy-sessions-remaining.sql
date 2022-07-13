@@ -6,6 +6,6 @@ SET
 FROM public."user" users
 WHERE
     users."userId" = partneraccess."userId"
-    AND users."email" = 'ellie@chayn.co';
+    AND users."email" = '';
 
 -- COMMIT TRANSACTION;
