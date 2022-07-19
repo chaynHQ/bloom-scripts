@@ -29,17 +29,25 @@ Create new branches from the `main` base branch. After adding scripts, simply pu
 Bloom and all of Chayn's projects are open source.
 
 ## Creating a new partner admin
-The process for creating a new partner admin depends on whether the user has already created a public bloom account. 
+The process for creating a new partner admin is different depending on whether the user has already created a public bloom account. 
 
 ### User does not have an account 
-The script to use in this case is  `insert-user-as-partner-admin.sql`. 
+The script to use in this case is `insert-user-as-partner-admin.sql`. 
 
-1. Manually create a new user in firebase with a secure password
+1. Manually create a new user in firebase with a secure password.
 2. Copy the firebase ID of the new user and using this information as well as the user's full name and email, create a new user in the database using step one of the script. To do this, the step two portion of the script will need to be commented out. 
 3. If no errors occurred, commit this change.
-4. Now, using step two of the script, insert a partner-admin entity. This will convert the user to a partner admin. To do this, the step one portion of the script should be commented out. 
+4. Now, using step two of the script, insert a partner-admin entity using the email and partner name. This will convert the user to a partner admin. To do this, the step one portion of the script should be commented out. 
 5. If no errors occurred, commit this change.  
-6. Share the credentials to the new user and ask them to reset their password immediately. 
+6. Share the credentials to the new user and request that they change their password immediately. 
+
+### User does have an account 
+The script to use in this case is `convert-user-to-partner-admin.sql`. 
+
+1. Check the user exists in the database by running a query against the users table with the given user email. 
+2. If the user exists, run the script to add a partner-admin entity using the user's email and the partner name. 
+3. If no errors occurred, commit this change.
+4. Let the user know they've been upgraded to a partner admin
 
 ## Creating access codes 
 
