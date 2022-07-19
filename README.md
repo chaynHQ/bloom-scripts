@@ -28,6 +28,19 @@ Create new branches from the `main` base branch. After adding scripts, simply pu
 
 Bloom and all of Chayn's projects are open source.
 
+## Creating a new partner admin
+The process for creating a new partner admin depends on whether the user has already created a public bloom account. 
+
+### User does not have an account 
+The script to use in this case is  `insert-user-as-partner-admin.sql`. 
+
+1. Manually create a new user in firebase with a secure password
+2. Copy the firebase ID of the new user and using this information as well as the user's full name and email, create a new user in the database using step one of the script. To do this, the step two portion of the script will need to be commented out. 
+3. If no errors occurred, commit this change.
+4. Now, using step two of the script, insert a partner-admin entity. This will convert the user to a partner admin. To do this, the step one portion of the script should be commented out. 
+5. If no errors occurred, commit this change.  
+6. Share the credentials to the new user and ask them to reset their password immediately. 
+
 ## Creating access codes 
 
  The `create-access-codes` script in the `package.json` file is intended to help easily create access codes for a given partner. To run the script, we'll need to:
