@@ -1,0 +1,2 @@
+createdAt,updatedAt,action,clientEmail,bookingCode,clientTimezone,serviceName,serviceProviderName,serviceProviderEmail,startDateTime,endDateTime,cancelledAt,rescheduledFrom,completedAt,partnerAccessId
+2022-03-13 13:49:00+00,2022-03-13 13:49:00+00,NEW_BOOKING,email@gmail.com,<bookingcode>,America/Chicago,Therapy in English,email@gmail.com,email@gmail.com,15-03-2022 23:00:00,15-03-2022 00:00:00,,,,<partnerAccessId>

@@ -66,3 +66,17 @@ This is one potential way to process the output of the above script.
  2. With the cell highlighted, click on "Data > Split text into columns". This will separate the access codes into separate columns in a single row.m 
  3. Copy the row with all the codes, click on the cell below, right click and choose  "Paste special > Tranposed". This paste command will put an access code on each row. 
  4. That's it! Celebrate :)
+
+ ## Upload missing therapy sessions
+ The upload-therapy-sessions script in the package.json file is intended to help easily upload missing therapy sessions to the db if the zapier integration breaks down between simplybook and the database. 
+ 
+ Before running the script, a csv file with the missing information will need to be created. The csv file format should match the data format of the information in the database. See example file: `simplybook/therapysession.csv` 
+
+ To run the script, we'll need to:
+
+1. First create a local .env file if one doesn't already exist. See the env.example file for an example.
+2. Fill in the URL variable in the .env file. This variable should point to the bloom backend simplybook webhook in prod. 
+3. Next, we'll fill in the AUTH variable in the .env file. Speak to a team member if you're not sure how to do this. 
+4. Finally, set the CSV_FILE variable in the .env file. This points to the csv file with the missing data.  
+
+Now run the script by using the following command: `yarn upload-therapy-sessions`. The script will add the therapy sessions to the database and decrement the therapy sessions allocated a user.  
