@@ -9,7 +9,7 @@ import path from 'path';
  * This script is intended to help update the database with SimplyBook therapy appointments 
  * that were missed due to a broken zapier. 
  */
-const URL = process.env.URL; 
+const URL = process.env.SIMPLYBOOK_WEBHOOK_URL; 
 const AUTH = process.env.AUTH
 const CSV_FILE = process.env.CSV_FILE;
 
@@ -20,7 +20,7 @@ const headers = {
 };
 
 const checkEnvVarsSet = () => {
-    if(!URL) throw Error('Please set API URL');
+    if(!URL) throw Error('Please set simplybook webhook URL');
     if(!AUTH) throw Error('Please set auth');
     if(!CSV_FILE) throw Error('Please set the file containing records to upload');
 }

@@ -75,7 +75,7 @@ This is one potential way to process the output of the above script.
  To run the script, we'll need to:
 
 1. First create a local .env file if one doesn't already exist. See the env.example file for an example.
-2. Fill in the URL variable in the .env file. This variable should point to the bloom backend simplybook webhook in prod. 
+2. Fill in the `SIMPLYBOOK_WEBHOOK_URL` variable in the .env file. This variable should point to the bloom backend simplybook webhook in prod. 
 3. Next, we'll fill in the AUTH variable in the .env file. Speak to a team member if you're not sure how to do this. 
 4. Finally, set the CSV_FILE variable in the .env file. This points to the csv file with the missing data.  
 
