@@ -4,7 +4,7 @@ import 'dotenv/config'
  * This script is intended to help create access codes for a given partner. 
  * The README will contain more information on how to run the script. 
  */
-const URL = process.env.URL; 
+const URL = process.env.BLOOM_API_URL; 
 const TOKEN = process.env.TOKEN
 const NUMBER_OF_CODES_NEEDED = parseInt(process.env.NUMBER_OF_CODES_NEEDED);
 

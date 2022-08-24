@@ -5,10 +5,13 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "create-access-codes": "ts-node --esm backend/create-access-codes.ts"
+    "create-access-codes": "ts-node --esm backend/create-access-codes.ts",
+    "upload-therapy-sessions": "ts-node --esm simplybook/upload-therapy-sessions.ts"
   },
   "dependencies": {
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "fast-csv": "^4.3.6",
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "@types/node": "^16.0.0",
