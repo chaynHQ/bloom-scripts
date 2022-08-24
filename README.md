@@ -53,7 +53,7 @@ The script to use in this case is `convert-user-to-partner-admin.sql`.
 
  The `create-access-codes` script in the `package.json` file is intended to help easily create access codes for a given partner. To run the script, we'll need to:
  1. First create a local `.env` file if one doesn't already exist. See the `env.example` file for an example. 
- 2. Fill in the `URL` variable in the `.env` file. This variable should point to the bloom backend in the environment where the codes are needed (staging or prod)
+ 2. Fill in the `BLOOM_API_URL` variable in the `.env` file. This variable should point to the bloom backend in the environment where the codes are needed (staging or prod)
  3. Next, we'll fill in the `TOKEN` variable in the `.env` file. To do this, send a POST request to `{{host}}/api/auth/signin` with a body including email and password e.g. `{"email": "<fill-in>","password": "%<fill-in>"}`. The credentials MUST belong to a user who is an admin and associated with the partner for whom the codes are being created. The `{{host}}` in the given url must be the same as the 
  4. From the api response, copy the access token and paste it as the `TOKEN` variable in the `.env` file. 
  5. Finally, set the `NUMBER_OF_CODES_NEEDED` variable in the `.env` file
