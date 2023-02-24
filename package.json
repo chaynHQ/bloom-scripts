@@ -5,7 +5,8 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "create-access-codes": "ts-node --esm backend/create-access-codes.ts"
+    "create-access-codes": "ts-node --esm backend/create-access-codes.ts",
+    "setup-cypress": "ts-node --esm backend/cypress-setup.ts"
   },
   "dependencies": {
     "dotenv": "^16.0.1"
