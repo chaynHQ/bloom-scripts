@@ -63,7 +63,7 @@ const createBumblePartnerAdminUser = async () => {
 };
 const createBadooPartnerAdminUser = async () => {
     const dto = {
-        partnerId: BUMBLE_PARTNER_ID,
+        partnerId: BADOO_PARTNER_ID,
         name: 'Test badoo partner admin user - do not delete',
         email: generateEmail("badoopartneradmin")
     }
